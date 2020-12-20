@@ -7,3 +7,6 @@
 [submodule "suckless/.config/slock"]
 	path = suckless/.config/slock
 	url = https://github.com/joaquin-rossi/slock
+[submodule "suckless/.config/dwmblocks"]
+	path = suckless/.config/dwmblocks
+	url = https://github.com/joaquin-rossi/dwmblocks

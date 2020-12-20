@@ -1,0 +1,3 @@
+[submodule "suckless/.config/dwm"]
+	path = suckless/.config/dwm
+	url = https://github.com/joaquin-rossi/dwm

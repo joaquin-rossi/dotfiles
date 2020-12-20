@@ -1,0 +1,6 @@
+file:///home/joaquin/downloads
+file:///home/joaquin/.universe
+smb://wdmycloud/ wdmycloud
+smb://debian.local/ debian
+sftp://joaquin@raspi.local/ raspi
+sftp://joaquin@joaquinrossi.net/ vultr

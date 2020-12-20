@@ -1,0 +1,261 @@
+# vim: filetype=i3
+# ---Basic Definitions--- #
+set $mod Mod4
+set $shutdown sudo -A shutdown -h now
+set $reboot sudo -A reboot
+set $netrefresh sudo -A systemctl restart NetworkManager
+set $hibernate sudo -A systemctl suspend
+
+exec layout.sh
+exec_always xwallpaper --no-randr --zoom ~/.config/wall.png
+exec picom -f --no-fading-openclose
+exec thunar --daemon
+exec syncthing
+exec dunst
+exec xrdb ~/.Xresources
+
+# ---Gaps--- #
+for_window [class="^.*"] border pixel 2
+
+# ---Dropdown Windows--- #
+# General dropdown window traits. The order can matter.
+for_window [instance="dropdown_*"] floating enable
+for_window [instance="dropdown_*"] move scratchpad
+for_window [instance="dropdown_*"] sticky enable
+for_window [instance="dropdown_*"] scratchpad show
+for_window [instance="dropdown_*"] move position center
+
+set $bg #282828
+set $red #CC241D
+set $green #98971A
+set $yellow #D79921
+set $blue #458588
+set $purple #B16286
+set $aqua #689D68
+set $gray #A89984
+set $darkgray #1D2021
+set $white #F8F8F2
+
+#class                  border    backgr    text      indicator child_border
+client.focused          $blue 	  $blue 	$darkgray $blue 	$agua
+client.focused_inactive $darkgray $darkgray $yellow   $darkgray $darkgray
+client.unfocused        $darkgray $darkgray $yellow   $purple 	$darkgray
+client.urgent 			$red 	  $red      $white 	  $red 	    $red
+
+bar {
+	font pango:symbols nerd font 10
+	status_command i3blocks
+	position top
+	tray_output primary
+	tray_padding 1
+
+	bindsym button3 exec ~/.local/bin/menus/xmenu.sh
+ 	
+	colors {
+			background $darkgray
+        	separator  $white
+      		statusline $white
+            focused_workspace    $yellow $yellow $darkgray
+            inactive_workspace   $bg 	 $bg 	 $yellow
+            active_workspace     $bg     $yellow $bg
+            urgent_workspace     $red    $red    $bg
+  	}
+}
+
+# ---Basic Bindings--- #
+bindsym $mod+Return 	exec $TERMINAL
+
+bindsym $mod+space		focus mode_toggle
+bindsym $mod+Shift+space 	floating toggle
+
+bindsym $mod+BackSpace		exec dmenuprompt "Shutdown computer?" "$shutdown"
+bindsym $mod+Shift+BackSpace	exec dmenuprompt "Reboot computer?" "$reboot"
+
+bindsym $mod+Escape		exec ~/.local/bin/i3cmds/lock
+
+# ---Letter Key Bindings--- #
+bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
+
+bindsym $mod+w			exec $BROWSER
+
+bindsym $mod+e			exec thunar
+bindsym $mod+Shift+e 	exec prompt "Exit i3?" "i3 exit"
+
+bindsym $mod+r 			exec "dmenu_run -nf '$white' -nb '$bg' -sb '$yellow' -sf '$white' -fn 'monospace-10' -p 'run%'"
+bindsym $mod+Shift+r	restart
+
+bindsym $mod+t			split toggle
+
+bindsym $mod+Shift+y	exec i3resize left 5
+
+bindsym $mod+Shift+u	exec i3resize down 5
+
+bindsym $mod+Shift+i	exec i3resize up 5
+
+bindsym $mod+Shift+o	exec i3resize right 5
+
+bindsym $mod+p			exec keepassxc
+
+bindsym $mod+f			fullscreen toggle
+
+bindsym $mod+h			focus left
+bindsym $mod+Shift+h	move left
+
+bindsym $mod+j			focus down
+bindsym $mod+Shift+j	move down
+
+bindsym $mod+k			focus up
+bindsym $mod+Shift+k	move up
+
+bindsym $mod+l			focus right
+bindsym $mod+Shift+l	move right
+
+bindsym $mod+v			exec $TERMINAL -e pulsemixer
+
+bindsym $mod+n			exec $TERMINAL -e newsboat
+
+bindsym $mod+m			exec pulsemixer --toggle-mute && pkill -RTMIN+1 i3blocks
+
+floating_modifier $mod
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+
+# switch to workspace
+bindsym $mod+1		workspace $ws1
+bindsym $mod+2		workspace $ws2
+bindsym $mod+3		workspace $ws3
+bindsym $mod+4		workspace $ws4
+bindsym $mod+5		workspace $ws5
+bindsym $mod+6		workspace $ws6
+bindsym $mod+7		workspace $ws7
+bindsym $mod+8		workspace $ws8
+bindsym $mod+9		workspace $ws9
+
+# move focused container to workspace
+bindsym $mod+Shift+1	move container to workspace $ws1
+bindsym $mod+Shift+2	move container to workspace $ws2
+bindsym $mod+Shift+3	move container to workspace $ws3
+bindsym $mod+Shift+4	move container to workspace $ws4
+bindsym $mod+Shift+5	move container to workspace $ws5
+bindsym $mod+Shift+6	move container to workspace $ws6
+bindsym $mod+Shift+7	move container to workspace $ws7
+bindsym $mod+Shift+8	move container to workspace $ws8
+bindsym $mod+Shift+9	move container to workspace $ws9
+
+for_window [window_role="GtkFileChooserDialog"] resize set 800 600
+for_window [window_role="GtkFileChooserDialog"] move position center
+for_window [title="Default - Wine desktop"] floating enable
+
+workspace $ws1 output primary
+workspace $ws2 output primary
+workspace $ws3 output primary
+workspace $ws4 output DP-0
+workspace $ws5 output DP-0
+workspace $ws6 output DP-0
+workspace $ws7 output DP-1-1
+workspace $ws8 output DP-1-1
+workspace $ws9 output DP-1-1
+
+# ---Function Buttons--- #
+bindsym $mod+F1		exec $netrefresh
+bindsym $mod+F5		exec dmenumount
+bindsym $mod+F6 	exec dmenuumount
+
+# ---Media Keys--- #
+# Volume keys
+bindsym $mod+plus		exec pulsemixer --change-volume +10 && pkill -RTMIN+1 i3blocks
+bindsym $mod+minus 		exec pulsemixer --change-volume -10 && pkill -RTMIN+1 i3blocks
+
+# For screenshots and recording
+bindsym Print 				exec maim -s screenshot-"$(date '+%Y-%m-%dT%H:%M:%S').png"
+
+# ---Extra XF86 Keys---#
+bindsym XF86AudioMute		exec --no-startup-id pulsemixer --toggle-mute && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume	exec --no-startup-id pulsemixer --change-volume -5 && pkill -RTMIN+1 i3blocks
+bindsym Shift+XF86AudioLowerVolume	exec --no-startup-id pulsemixer --change-volume -10 && pkill -RTMIN+1 i3blocks
+bindsym Control+XF86AudioLowerVolume	exec --no-startup-id pulsemixer --change-volume -1 && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume	exec --no-startup-id pulsemixer --change-volume +5 && pkill -RTMIN+1 i3blocks
+bindsym Shift+XF86AudioRaiseVolume	exec --no-startup-id pulsemixer --change-volume +10 && pkill -RTMIN+1 i3blocks
+bindsym Control+XF86AudioRaiseVolume	exec --no-startup-id pulsemixer --change-volume +1 && pkill -RTMIN+1 i3blocks
+bindsym XF86PowerOff		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
+##bindsym XF86Copy		exec
+##bindsym XF86Open		exec
+##bindsym XF86Paste		exec
+##bindsym XF86Cut		exec
+##bindsym XF86MenuKB		exec
+bindsym XF86Calculator		exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
+##bindsym XF86Sleep		This binding is typically mapped by systemd automatically.
+##bindsym XF86WakeUp		exec
+bindsym XF86Explorer		exec $TERMINAL -e lf
+##bindsym XF86Send		exec
+##bindsym XF86Xfer		exec
+bindsym XF86WWW			exec --no-startup-id $BROWSER
+##bindsym XF86DOS		exec
+bindsym XF86ScreenSaver		exec exec --no-startup-id lockscreen
+##bindsym XF86RotateWindows	exec
+##bindsym XF86TaskPane		exec
+##bindsym XF86Favorites		exec
+bindsym XF86MyComputer		exec $TERMINAL -e lf
+##bindsym XF86Back		exec
+##bindsym XF86Forward		exec
+bindsym XF86Eject		exec --no-startup-id dmenuumount
+bindsym XF86AudioNext		exec --no-startup-id mpc next
+bindsym XF86AudioPlay		exec --no-startup-id mpc toggle
+bindsym XF86AudioPrev		exec --no-startup-id mpc prev
+bindsym XF86AudioStop		exec --no-startup-id mpc toggle
+##bindsym XF86AudioRecord
+bindsym XF86AudioRewind		exec --no-startup-id mpc seek -10
+bindsym XF86AudioForward	exec --no-startup-id mpc seek +10
+##bindsym XF86Phone		exec
+##bindsym XF86Tools		exec
+bindsym XF86HomePage		exec $BROWSER https://lukesmith.xyz
+bindsym XF86Reload		restart
+##bindsym XF86ScrollUp		exec
+##bindsym XF86ScrollDown		exec
+##bindsym XF86New		exec
+##bindsym XF86LaunchA		exec
+##bindsym XF86LaunchB		exec
+##bindsym XF86Launch2		exec
+##bindsym XF86Launch3		exec
+##bindsym XF86Launch4		exec
+##bindsym XF86Launch5		exec
+##bindsym XF86Launch6		exec
+##bindsym XF86Launch7		exec
+##bindsym XF86Launch8		exec
+##bindsym XF86Launch9		exec
+#bindsym XF86AudioMicMute	exec $micmute
+bindsym XF86TouchpadToggle	exec --no-startup-id toggletouchpad
+bindsym XF86TouchpadOn		exec --no-startup-id synclient TouchpadOff=0
+bindsym XF86TouchpadOff		exec --no-startup-id synclient TouchpadOff=1
+bindsym XF86Suspend		exec --no-startup-id lockscreen
+bindsym XF86Close		kill
+bindsym XF86WebCam		exec --no-startup-id camtoggle
+bindsym XF86Mail		exec $TERMINAL -e neomutt && pkill -RTMIN+12 i3blocks
+bindsym XF86Messenger		exec $TERMINAL -e weechat
+bindsym XF86Search		exec $BROWSER https://duckduckgo.com
+##bindsym XF86Go			exec
+##bindsym XF86Finance		exec
+##bindsym XF86Game		exec
+bindsym XF86Shop		exec $BROWSER https://ebay.com
+bindsym XF86MonBrightnessDown	exec --no-startup-id xbacklight -dec 15
+bindsym XF86MonBrightnessUp	exec --no-startup-id xbacklight -inc 15
+bindsym XF86AudioMedia		exec --no-startup-id $TERMINAL -e ncmpcpp
+bindsym XF86Display		exec --no-startup-id displayselect
+#bindsym XF86KbdLightOnOff	exec
+#bindsym XF86KbdBrightnessDown	exec
+#bindsym XF86KbdBrightnessUp	exec
+##bindsym XF86Reply		exec
+##bindsym XF86MailForward	exec
+##bindsym XF86Save		exec
+bindsym XF86Documents		exec $TERMINAL -e lf ~/Documents
+##bindsym XF86Battery		exec
+##bindsym XF86Bluetooth		exec
+bindsym XF86WLAN		exec $netrefresh

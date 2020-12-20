@@ -1,0 +1,14 @@
+#!/bin/sh
+layout-command
+wallpaper-command
+picom -f --no-fading-openclose &
+setxkbmap es
+numlockx
+
+nm-applet &
+udiskie -s &
+volumeicon &
+dunst &
+
+# cbatticon -n -u 1 &
+# redshift-gtk -l -34:-56 &

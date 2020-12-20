@@ -1,0 +1,6 @@
+[user]
+	signingkey = ABCBC9E552736600EF9E86D9488019A673AF5C2F
+	email = joaquin@joaquinrossi.net
+	name = joaquin-rossi
+[credential]
+	helper = cache --timeout=3600

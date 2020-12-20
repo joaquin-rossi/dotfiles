@@ -10,3 +10,6 @@
 [submodule "suckless/.config/dwmblocks"]
 	path = suckless/.config/dwmblocks
 	url = https://github.com/joaquin-rossi/dwmblocks
+[submodule "suckless/.config/sent"]
+	path = suckless/.config/sent
+	url = https://github.com/joaquin-rossi/sent

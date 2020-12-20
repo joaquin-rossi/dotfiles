@@ -1,3 +1,6 @@
 [submodule "suckless/.config/dwm"]
 	path = suckless/.config/dwm
 	url = https://github.com/joaquin-rossi/dwm
+[submodule "suckless/.config/dmenu"]
+	path = suckless/.config/dmenu
+	url = https://github.com/joaquin-rossi/dmenu

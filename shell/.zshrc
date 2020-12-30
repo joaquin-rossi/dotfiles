@@ -19,7 +19,7 @@ _comp_options+=(globdots)
 
 if [ -n "$DESKTOP_SESSION" ]
 then
-    eval $(gnome-keyring-daemon --start)
+	eval $(gnome-keyring-daemon --start &> /dev/null)
     export SSH_AUTH_SOCK
 fi
 

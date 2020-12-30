@@ -1,7 +1,9 @@
 #!/bin/sh
-layout-command
-wallpaper-command
+layout
+wallpaper
+
 picom -f --no-fading-openclose &
+
 setxkbmap es
 numlockx
 
@@ -11,4 +13,3 @@ volumeicon &
 dunst &
 
 # cbatticon -n -u 1 &
-# redshift-gtk -l -34:-56 &

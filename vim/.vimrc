@@ -15,8 +15,6 @@ Plug 'bling/vim-airline' " statusbar
 Plug 'tpope/vim-commentary' " shortcuts for commenting
 Plug 'ap/vim-css-color' " hex code color highlighter
 Plug 'lervag/vimtex'
-Plug 'sirver/ultisnips'
-Plug 'honza/vim-snippets'
 call plug#end()
 
 " Some basics:

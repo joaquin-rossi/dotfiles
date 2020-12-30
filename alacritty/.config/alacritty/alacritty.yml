@@ -8,15 +8,11 @@ window:
   padding:
     x: 2
     y: 2
-
   dynamic_padding: false
-
   title: Alacritty
-
   class:
     instance: Alacritty
     general: Alacritty
-
   gtk_theme_variant: None
 
 scrolling:
@@ -26,30 +22,13 @@ scrolling:
 font:
   normal:
     family: Source Code Pro
-    style: Medium
-
+    # family: JoyPixels
   size: 12
-
   offset:
     x: -1
     y: -1
 
-  glyph_offset:
-    x: 0
-    y: 0
-
-#draw_bold_text_with_bright_colors: true
-
-bell:
-  animation: EaseOutExpo
-  duration: 0
-  color: '#FFFFFF'
-
 background_opacity: 0.95
-
-selection:
-  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
-  save_to_clipboard: false
 
 windows.dynamic_title: true
 
@@ -64,14 +43,11 @@ working_directory: None
 mouse:
   double_click: {threshold: 300}
   triple_click: {threshold: 300}
-
   hide_when_typing: true
-
   url:
     launcher:
       program: xdg-open
       args: []
-
     modifiers: None
 
 mouse_bindings:
@@ -91,7 +67,5 @@ key_bindings:
 debug:
   render_timer: false
   persistent_logging: false
-
   log_level: Warn # Values: None, Error, Warn, Info, Debug, Trace
-
   print_events: false

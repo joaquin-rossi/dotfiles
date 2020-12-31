@@ -4,7 +4,9 @@ wallpaper
 
 picom -f --no-fading-openclose &
 
-setxkbmap es
+/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
+
+setxkbmap es nodeadkeys
 numlockx
 
 nm-applet &

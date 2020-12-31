@@ -8,7 +8,6 @@ pacins(){ paru -Slq | fzf -m --preview "cat <(paru -Si {1}) <(paru -Fl {1} | awk
 pacrem(){ paru -Qq | fzf -m --preview "cat <(paru -Si {1}) <(paru -Fl {1} | awk '{print $2}')" | xargs -ro paru -Runs }
 
 alias grep='grep --color=auto'
-alias cat='ccat -G Plaintext="blink" -G Keyword="purple" -G String="darkgreen" -G Punctuation="brown" -G Comment="faint"'
 alias ls='exa --group-directories-first'
 alias tree='exa -T'
 
@@ -20,3 +19,6 @@ pascal(){ fpc -Co -Cr -Miso -gl "$1" && rm "${1%.*}".o; }
 # youtube-dl
 alias yt-playlist="youtube-dl -o '%(title)s - %(uploader)s (%upload_date)s).%(ext)s'"
 alias yt-video="youtube-dl -o '%(title)s - %(uploader)s (%(upload_date)s).%(ext)s' --merge-output-format mkv --write-thumbnail"
+
+# fix keybindings
+bindkey "\e[3~" delete-char # delete key

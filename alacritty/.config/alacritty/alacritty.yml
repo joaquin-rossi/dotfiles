@@ -28,7 +28,7 @@ font:
     x: -1
     y: -1
 
-background_opacity: 0.95
+background_opacity: 0.85
 
 windows.dynamic_title: true
 

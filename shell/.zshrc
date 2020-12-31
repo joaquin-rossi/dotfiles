@@ -17,12 +17,6 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 _comp_options+=(globdots)
 
-if [ -n "$DESKTOP_SESSION" ]
-then
-	eval $(gnome-keyring-daemon --start &> /dev/null)
-    export SSH_AUTH_SOCK
-fi
-
 # Source configs
 source ~/.config/aliasrc
 source ~/.profile

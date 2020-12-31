@@ -13,3 +13,6 @@
 [submodule "suckless/.config/sent"]
 	path = suckless/.config/sent
 	url = https://github.com/joaquin-rossi/sent
+[submodule "suckless/.config/st"]
+	path = suckless/.config/st
+	url = git@github.com:joaquin-rossi/st.git

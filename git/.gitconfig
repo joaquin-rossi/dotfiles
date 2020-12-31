@@ -6,3 +6,7 @@
 	helper = cache --timeout=3600
 [core]
 	editor = vim
+[init]
+	defaultBranch = master
+[pull]
+	rebase = false

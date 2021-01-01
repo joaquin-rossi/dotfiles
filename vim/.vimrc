@@ -41,6 +41,9 @@ set mouse=a
 set nohlsearch
 set clipboard+=unnamedplus
 
+map <C-c> "+y
+map <C-v> "+P
+
 let skip_defaults_vim=1
 set viminfo=""
 

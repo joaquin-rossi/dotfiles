@@ -6,7 +6,7 @@ picom -f --no-fading-openclose &
 
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 
-setxkbmap es nodeadkeys
+setxkbmap es #nodeadkeys
 numlockx
 
 nm-applet &

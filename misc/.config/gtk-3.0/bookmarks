@@ -1,8 +1,9 @@
 file:///home/joaquin/downloads
 file:///home/joaquin/.universe
 file:///mnt
+
 smb://wdmycloud/ wdmycloud
 sftp://joaquin@a20.local:1234/storage/emulated/0 a20
-smb://debian.local/ debian
+sftp://joaquin@debian/ debian
 sftp://joaquin@raspi.local/ raspi
 sftp://joaquin@joaquinrossi.net/ vultr

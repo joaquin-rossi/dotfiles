@@ -5,7 +5,7 @@ export PATH="$PATH:$(du -L "$HOME/.local/bin" | cut -f2 | paste -sd ':' -)"
 export TERM='xterm-256color'
 
 # Default programs:
-export TERMINAL="alacritty"
+export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
 export FILEMANAGER="thunar"

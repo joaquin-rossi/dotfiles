@@ -1,18 +1,18 @@
-[submodule "suckless/.config/dmenu"]
-	path = suckless/.config/dmenu
-	url = https://github.com/joaquin-rossi/dmenu
-[submodule "suckless/.config/slock"]
-	path = suckless/.config/slock
-	url = https://github.com/joaquin-rossi/slock
-[submodule "suckless/.config/dwmblocks"]
-	path = suckless/.config/dwmblocks
-	url = https://github.com/joaquin-rossi/dwmblocks
-[submodule "suckless/.config/sent"]
-	path = suckless/.config/sent
-	url = https://github.com/joaquin-rossi/sent
-[submodule "suckless/.config/st"]
-	path = suckless/.config/st
-	url = git@github.com:joaquin-rossi/st.git
 [submodule "suckless/.config/dwm"]
 	path = suckless/.config/dwm
 	url = git@github.com:joaquin-rossi/dwm.git
+[submodule "suckless/.config/dmenu"]
+	path = suckless/.config/dmenu
+	url = git@github.com:joaquin-rossi/dmenu
+[submodule "suckless/.config/slock"]
+	path = suckless/.config/slock
+	url = git@github.com:joaquin-rossi/slock
+[submodule "suckless/.config/dwmblocks"]
+	path = suckless/.config/dwmblocks
+	url = git@github.com:joaquin-rossi/dwmblocks
+[submodule "suckless/.config/sent"]
+	path = suckless/.config/sent
+	url = git@github.com:joaquin-rossi/sent
+[submodule "suckless/.config/st"]
+	path = suckless/.config/st
+	url = git@github.com:joaquin-rossi/st.git

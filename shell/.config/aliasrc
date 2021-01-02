@@ -2,10 +2,12 @@
 # open files
 open(){ xdg-open "$1" &>/dev/null; }
 
+disku() { du -hc "$1" | grep total | awk '{print $1}'; }
+
 # pacman and aur
 alias autoremove='sudo pacman -Rns $(pacman -Qtdq) --noconfirm 2>/dev/null || echo "No orphaned packages"' # remove orphaned packages
-pacins(){ paru -Slq | fzf -m --preview "cat <(paru -Si {1}) <(paru -Fl {1} | awk '{print $2}')" | xargs -ro paru -S }
-pacrem(){ paru -Qq | fzf -m --preview "cat <(paru -Si {1}) <(paru -Fl {1} | awk '{print $2}')" | xargs -ro paru -Runs }
+pacins() { paru -Slq | fzf -m --preview "cat <(paru -Si {1}) <(paru -Fl {1} | awk '{print $2}')" | xargs -ro paru -S }
+pacrem() { paru -Qq | fzf -m --preview "cat <(paru -Si {1}) <(paru -Fl {1} | awk '{print $2}')" | xargs -ro paru -Runs }
 
 alias grep='grep --color=auto'
 alias ls='exa --group-directories-first'

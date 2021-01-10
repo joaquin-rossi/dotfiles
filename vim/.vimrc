@@ -15,6 +15,7 @@ Plug 'bling/vim-airline' " statusbar
 Plug 'tpope/vim-commentary' " shortcuts for commenting
 Plug 'ap/vim-css-color' " hex code color highlighter
 Plug 'lervag/vimtex'
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 " Some basics:
@@ -27,7 +28,7 @@ set encoding=utf-8
 set number
 syntax enable
 
-packadd! dracula
+syntax enable
 colorscheme dracula
 
 " tab behaviour

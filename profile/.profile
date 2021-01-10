@@ -1,12 +1,13 @@
 # Adds `~/.local/bin/*` to $PATH
-export PATH="$PATH:$(du -L "$HOME/.local/bin" | cut -f2 | paste -sd ':' -)"
+export PATH="$PATH:$(du -L "$HOME/.local/bin" | grep -v "npm" | cut -f2 | paste -sd ':' -)"
+export PATH="$PATH:$HOME/.local/bin/npm/bin"
 
 # Define terminal type
 export TERM='xterm-256color'
 
 # Default programs:
-export TERMINAL="st"
-export BROWSER="firefox"
+export TERMINAL="alacritty"
+export BROWSER="brave"
 export READER="zathura"
 export FILEMANAGER="thunar"
 export EDITOR="vim"

@@ -3,4 +3,4 @@
 [ -f ~/.profile ]
 [ -f ~/.xprofile ]
 
-exec qtile
+exec dwm

@@ -1,6 +1,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Source configs
+source ~/.config/aliasrc
+
 autoload -Uz promptinit && promptinit && prompt adam1
 
 setopt autocd # automatically cd into typed directory
@@ -17,8 +20,4 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 _comp_options+=(globdots)
 
-# Source configs
-source ~/.config/aliasrc
-source ~/.profile
-
-compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
+compinit -d ~/.cache/zsh/zcompdump

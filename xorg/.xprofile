@@ -2,7 +2,7 @@
 layout
 wallpaper
 
-picom -f --no-fading-openclose &
+picom -b -f --no-fading-openclose
 
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 

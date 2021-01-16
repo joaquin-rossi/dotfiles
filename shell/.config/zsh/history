@@ -1,0 +1,63 @@
+: 1610758626:0;cd .config/dwm
+: 1610758626:0;ls
+: 1610758630:0;make clean
+: 1610758632:0;zsh
+: 1610758651:0;mv .zshrc .config/zshrc
+: 1610758762:0;ls -a
+: 1610758764:0;clear
+: 1610758862:0;cd .config/wm
+: 1610758864:0;cd .config/dwm
+: 1610758865:0;ls
+: 1610758866:0;clear
+: 1610758870:0;echo $THEME
+: 1610758880:0;echo $RANDOM_THEME
+: 1610758888:0;vim .zshrc
+: 1610758916:0;cd .universe/do
+: 1610758917:0;cd .universe/dotfiles
+: 1610758918:0;ls
+: 1610758919:0;clear
+: 1610758920:0;git status
+: 1610758930:0;vim .zshrc
+: 1610758946:0;cd .universe/dotfiles/
+: 1610758952:0;cd .universe/dotfiles
+: 1610758958:0;vim .zshrc
+: 1610758962:0;clear
+: 1610758973:0;vim .zshrc
+: 1610758986:0;clear
+: 1610758986:0;ls -a
+: 1610758993:0;rm .zsh_history
+: 1610758998:0;ls .mozilla
+: 1610759001:0;ls .mozilla/native-messaging-hosts
+: 1610759004:0;ls .mozilla/extensions
+: 1610759008:0;rm -rf .mozilla
+: 1610759105:0;echo $LANG
+: 1610759111:0;vim .profile
+: 1610759135:0;echo $LANG
+: 1610759139:0;clear
+: 1610759149:0;cd learning/university/s2/p1
+: 1610759150:0;ls
+: 1610759151:0;\ls
+: 1610759153:0;tree
+: 1610759154:0;clear
+: 1610759156:0;cd teórico
+: 1610759157:0;ls
+: 1610759161:0;..
+: 1610759162:0;cd prÃ�ctico
+: 1610759163:0;ls
+: 1610759163:0;clear
+: 1610759164:0;ls
+: 1610759165:0;clear
+: 1610759166:0;cd prÃ�ctico2
+: 1610759167:0;ls
+: 1610759167:0;clear
+: 1610759172:0;chmod -x solución.md letra.md
+: 1610759176:0;clear
+: 1610759177:0;..
+: 1610759179:0;ls
+: 1610759183:0;clear
+: 1610759183:0;ls
+: 1610759185:0;tree
+: 1610759203:0;cd .universe/dotfiles
+: 1610759204:0;ls
+: 1610759206:0;git status
+: 1610759208:0;git add .

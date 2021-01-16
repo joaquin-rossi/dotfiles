@@ -10,7 +10,7 @@ setxkbmap es #nodeadkeys
 numlockx
 
 nm-applet &
-udiskie -s &
+# udiskie -s &
 volumeicon &
 dunst &
 

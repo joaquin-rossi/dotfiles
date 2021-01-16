@@ -15,6 +15,9 @@ export EDITOR="vim"
 # Export XDG environmental variables from '~/.config/user-dirs.dirs'
 eval "$(sed 's/^[^#].*/export &/g;t;d' ~/.config/user-dirs.dirs)"
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -33,7 +36,7 @@ export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 export ADB_VENDOR_KEY="$XDG_CONFIG_HOME/android"
 export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 export NPM_CONFIG_PREFIX="$HOME/.local/bin/npm"
-export ZDOT_DIR="$XDG_CONFIG_HOME/zsh/"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Other program settings:
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"

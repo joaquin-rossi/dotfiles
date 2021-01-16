@@ -1,26 +1,16 @@
-### ALIASES ###
-# open files
-open(){ xdg-open "$1" &>/dev/null; }
-
-disku() { du -hc "$1" | grep total | awk '{print $1}'; }
-
-# pacman and aur
-alias autoremove='sudo pacman -Rns $(pacman -Qtdq) --noconfirm 2>/dev/null || echo "No orphaned packages"' # remove orphaned packages
-pacins() { paru -Slq | fzf -m --preview "cat <(paru -Si {1}) <(paru -Fl {1} | awk '{print $2}')" | xargs -ro paru -S }
-pacrem() { paru -Qq | fzf -m --preview "cat <(paru -Si {1}) <(paru -Fl {1} | awk '{print $2}')" | xargs -ro paru -Runs }
+#!/bin/sh
+alias autoremove='sudo pacman -Rns $(pacman -Qtdq) --noconfirm 2>/dev/null || echo "No orphaned packages"'
+pacins() { paru -Slq | fzf -m --preview "cat <(paru -Si {1}) <(paru -Fl {1} | awk '{print $2}')" | xargs -ro paru -S; }
+pacrem() { paru -Qq | fzf -m --preview "cat <(paru -Si {1}) <(paru -Fl {1} | awk '{print $2}')" | xargs -ro paru -Runs; }
 
 alias grep='grep --color=auto'
-alias ls='exa --group-directories-first'
+alias ls='exa'
 alias tree='exa -T'
 
-# compilers && interpreters
-alias python='python3'
 alias ghc='ghc -no-keep-o-files -no-keep-hi-files'
 pascal(){ fpc -Co -Cr -Miso -gl "$1" && rm "${1%.*}".o; }
 
-# youtube-dl
 alias yt-playlist="youtube-dl -o '%(title)s - %(uploader)s (%upload_date)s).%(ext)s'"
 alias yt-video="youtube-dl -o '%(title)s - %(uploader)s (%(upload_date)s).%(ext)s' --merge-output-format mkv --write-thumbnail"
 
-# fix keybindings
-bindkey "\e[3~" delete-char # delete key
+bindkey "\e[3~" delete-char

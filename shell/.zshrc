@@ -1,32 +1,14 @@
-#!/bin/zsh
-# If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+source "$HOME/.profile"
+[ "$(tty)" = "/dev/tty1" ] && startx
 
-if [ "$(tty)" = "/dev/tty1" ]
-then
-	pgrep dwm || startx
-fi
+ZSH_THEME="jaischeema"
+CASE_SENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
-# Source configs
+plugins=(git zsh-syntax-highlighting)
+
+export ZSH="/home/joaquin/.config/oh-my-zsh"
+source "$ZSH/oh-my-zsh.sh"
 source ~/.config/aliasrc
-source ~/.profile
-
-autoload -Uz promptinit && promptinit && prompt adam1
-
-setopt autocd # automatically cd into typed directory
-setopt interactive_comments
-
-# History in cache directory
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.cache/zsh/history
-
-# Basic autocomplete
-autoload -U compinit && compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-_comp_options+=(globdots)
-
-compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
-
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+HISTFILE="$XDG_CACHE_HOME/zsh/history"

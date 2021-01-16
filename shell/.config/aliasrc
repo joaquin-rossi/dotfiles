@@ -12,5 +12,3 @@ pascal(){ fpc -Co -Cr -Miso -gl "$1" && rm "${1%.*}".o; }
 
 alias yt-playlist="youtube-dl -o '%(title)s - %(uploader)s (%upload_date)s).%(ext)s'"
 alias yt-video="youtube-dl -o '%(title)s - %(uploader)s (%(upload_date)s).%(ext)s' --merge-output-format mkv --write-thumbnail"
-
-bindkey "\e[3~" delete-char

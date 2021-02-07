@@ -1,6 +1,6 @@
 #!/bin/sh
 alias autoremove='sudo pacman -Rns $(pacman -Qtdq) --noconfirm 2>/dev/null || echo "No orphaned packages"'
-pacins() { paru -Slq | fzf -m --preview "cat <(paru -Si {1}) <(paru -Fl {1} | awk '{print $2}')" | xargs -ro paru -S; }
+pacins() { paru -Slq | fzf -m --preview "cat <(paru -Si {1}) <(paru -Fl {1} | awk '{print $2}')" | xargs -ro paru -Syu; }
 pacrem() { paru -Qq | fzf -m --preview "cat <(paru -Si {1}) <(paru -Fl {1} | awk '{print $2}')" | xargs -ro paru -Runs; }
 
 alias grep='grep --color=auto'
@@ -12,3 +12,11 @@ pascal(){ fpc -Co -Cr -Miso -gl "$1" && rm "${1%.*}".o; }
 
 alias yt-playlist="youtube-dl -o '%(title)s - %(uploader)s (%upload_date)s).%(ext)s'"
 alias yt-video="youtube-dl -o '%(title)s - %(uploader)s (%(upload_date)s).%(ext)s' --merge-output-format mkv --write-thumbnail"
+pyt() {
+	ids=$(youtube-dl --get-id "$1")
+	echo $ids | xargs -I '{}' -P "$(echo $ids | wc -l)" youtube-dl 'https://youtube.com/watch?v={}' "${@:2}"
+}
+
+disku() {
+	du -ch "$1" | grep --color=no total | awk '{ print $1 }'
+}

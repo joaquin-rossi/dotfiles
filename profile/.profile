@@ -36,7 +36,7 @@ export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 export ADB_VENDOR_KEY="$XDG_CONFIG_HOME/android"
 export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 export NPM_CONFIG_PREFIX="$HOME/.local/bin/npm"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+#export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # Other program settings:
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"

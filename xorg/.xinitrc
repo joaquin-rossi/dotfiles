@@ -1,17 +1,13 @@
 #!/bin/sh
-wallpaper
-layout.sh
+. ~/.profile
 
-picom -b -f --no-fading-openclose
-
-/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
-
-setxkbmap es #nodeadkeys
-numlockx
-
-nm-applet &
-# udiskie -s &
-volumeicon &
+mpd &
+setlayout &
+setbg &
+picom -f --no-fading-openclose &
 dunst &
+mate-polkit &
+setxkbmap es &
+numlockx &
 
-exec dwm
+exec xmonad

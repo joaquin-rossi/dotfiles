@@ -1,7 +1,7 @@
 [user]
 	signingkey = F9F034ED3E5756E4
 	email = joaquin@joaquinrossi.net
-	name = Joaquin Rossi
+	name = Joaquín Rossi
 [credential]
 	helper = cache --timeout=3600
 [core]

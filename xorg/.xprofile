@@ -1,17 +1,12 @@
 #!/bin/sh
-layout
-wallpaper
+. $HOME/.profile
+[[ -f $HOME/.Xresources ]] && xrdb -merge $HOME/.Xresources
 
-picom -b -f --no-fading-openclose
-
-/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
-
-setxkbmap es #nodeadkeys
-numlockx
-
-nm-applet &
-# udiskie -s &
-volumeicon &
+mpd &
+setlayout
+setbg
+picom -f --no-fading-openclose &
 dunst &
-
-# cbatticon -n -u 1 &
+mate-polkit &
+setxkbmap es &
+numlockx &

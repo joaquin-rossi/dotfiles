@@ -45,9 +45,6 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
-export SUDO_ASKPASS="$HOME/.local/bin/dmenu/dmenupass"
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
 export LESS_TERMCAP_md=$(tput bold; tput setaf 2) # green
 export LESS_TERMCAP_so=$(tput bold; tput setaf 3) # yellow

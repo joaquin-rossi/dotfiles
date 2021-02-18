@@ -1,0 +1,14 @@
+!! Dracula
+wm.textcolor: #F8F8F2
+wm.selcolor: #6272A3
+wm.unselcolor: #282A36
+
+dmenu.foreground: #F8F8F2
+dmenu.background: #282A36
+dmenu.selforeground: #F8F8F2
+dmenu.selbackground: #6272A3
+
+slock.init: #282A36
+slock.input: #6272A3
+slock.failed: #FF5555
+slock.caps: #FFB86C
